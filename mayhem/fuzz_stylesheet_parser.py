@@ -30,21 +30,21 @@ def nostdout():
 # @atheris.instrument_func
 def TestOneInput(data):
     fdp = atheris.FuzzedDataProvider(data)
-    with nostdout():
-        rules = tinycss2.parse_stylesheet_bytes(fdp.ConsumeBytes(fdp.ConsumeIntInRange(0, 10000)))[0]
-        for rule in rules:
-            if isinstance(rule, tinycss2.ast.QualifiedRule):
-                tinycss2.parse_declaration_list(rule.content)
-            if isinstance(rule, tinycss2.ast.Node) and not isinstance(rule, tinycss2.ast.ParseError):
-                repr(rule.serialize())
+    # with nostdout():
+    rules = tinycss2.parse_stylesheet_bytes(fdp.ConsumeBytes(fdp.ConsumeIntInRange(0, 10000)))[0]
+    for rule in rules:
+        if isinstance(rule, tinycss2.ast.QualifiedRule):
+            tinycss2.parse_declaration_list(rule.content)
+        if isinstance(rule, tinycss2.ast.Node) and not isinstance(rule, tinycss2.ast.ParseError):
+            repr(rule.serialize())
 
-        # Consume a string for parse_color
-        color_css = fdp.ConsumeUnicode(25)
-        # Consume a string for parse_nth
-        nth_css = fdp.ConsumeUnicode(25)
+    # Consume a string for parse_color
+    color_css = fdp.ConsumeUnicode(25)
+    # Consume a string for parse_nth
+    nth_css = fdp.ConsumeUnicode(25)
 
-        tinycss2.color3.parse_color(color_css)
-        tinycss2.nth.parse_nth(nth_css)
+    tinycss2.color3.parse_color(color_css)
+    tinycss2.nth.parse_nth(nth_css)
 
 
 def main():
