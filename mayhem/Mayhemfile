@@ -1,6 +1,8 @@
 project: tinycss2
 target: parser-fuzz
+testsuite:
+    - file://mayhem/testsuite
 
 cmds:
-  - cmd: /fuzz_parser.py
+  - cmd: /src/tinycss2/mayhem/fuzz_stylesheet_parser.py
     libfuzzer: true

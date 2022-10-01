@@ -1,7 +1,8 @@
 # Build Stage
 FROM fuzzers/atheris:2.0.7-python3.9
 
-ADD ./mayhem/fuzz_parse.py /fuzz_parser.py
-RUN pip install tinycss2
+ADD . /src
+WORKDIR /src
+RUN python -m pip install .
 
-CMD ["/fuzz_parser.py"]
+CMD ["/src/mayhem/fuzz_stylesheet_parser.py"]
