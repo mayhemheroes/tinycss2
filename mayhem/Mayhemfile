@@ -1,0 +1,6 @@
+project: tinycss2
+target: parser-fuzz
+
+cmds:
+  - cmd: /fuzz_parser.py
+    libfuzzer: true
