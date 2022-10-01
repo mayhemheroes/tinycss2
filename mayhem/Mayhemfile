@@ -4,5 +4,6 @@ testsuite:
     - file://mayhem/testsuite
 
 cmds:
-  - cmd: /src/tinycss2/mayhem/fuzz_stylesheet_parser.py
+  - cmd: /src/mayhem/fuzz_stylesheet_parser.py
+    max_length: 13000
     libfuzzer: true
