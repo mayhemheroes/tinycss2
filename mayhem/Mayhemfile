@@ -1,0 +1,9 @@
+project: tinycss2
+target: parser-fuzz
+testsuite:
+    - file://mayhem/testsuite
+
+cmds:
+  - cmd: /src/mayhem/fuzz_stylesheet_parser.py
+    max_length: 13000
+    libfuzzer: true
