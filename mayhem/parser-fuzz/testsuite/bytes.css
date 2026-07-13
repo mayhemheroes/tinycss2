@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+    background: yellow;
+}
+h1 {
+    color: #ff0000;
+    font-size: 24px;
+}
+p {
+    value: \26 3B;
+    color: rgb(0,255,0);
+    font-size: 14px;
+}
+U+0026 U+003B
+"This is to handle blocks that attempt to parse strings with \n and \other escaped sequences in them"

@@ -1,0 +1,8 @@
+project: tinycss2
+target: fuzz-components
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+cmds:
+  - cmd: /mayhem/fuzz-components
+    libfuzzer: true
+    max_length: 4096
